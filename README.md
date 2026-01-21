@@ -11,8 +11,9 @@ Due to ethical restrictions, data used in this puplication cannot be shared.
 ## Analysis
 Following minimal prepcrosessing, high SNR alpha activity was extracted using spatio-spectral decomposition (SSD; https://doi.org/10.1016/j.neuroimage.2011.01.057). Cortical locations of identified components was then derived using template matching, prior to waveform analysis with empirical mode decompositions (EMD), and shape quantification with principal component analysis (according to a previously published pipeline; https://doi.org/10.1152/jn.00201.2021). Principal component scores were then compared across _Pre_ and _Post_ time points for the _Placebo_ and _Diazepam_ conditions.
 
-Scripts should be run according to their title prefix in the following order:
-- `preprocessing.py`
+See `code/preproc/` for scripts to preprocess the data. This involved import of raw data into Matlab and reformatting into EEGlab structures (`dat_reform.m`), followed by downsampling and removal of linenoise with the zapline-plus plugin (https://doi.org/10.1002/hbm.25832)(`lineNoise.m). Subsequent preprocessing was run in MNE-python (`preprocessing.py`). 
+
+Main analyses were then conducted by running scripts in the `code/` folder, with order determined by title prefix according to the following:
 - `spect_*.py`
 - `ssd_*.py`
 - `emd_*.py`
